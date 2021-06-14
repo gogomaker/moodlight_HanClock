@@ -1,0 +1,12 @@
+Arduino pin map
+
+ 3 - LED
+ 4 - hour LED
+ 5 - LED
+ 6 - LED
+ 9 - LED
+10 - LED
+11 - LED
+12 - SW_MIN
+13 - SW_HOUR
+A0 - brightness_LED

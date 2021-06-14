@@ -1,0 +1,37 @@
+LED array
+PIN	0	1	2	3	4	5
+ARDU	11	10	9	6	5	3
+
+LED pin map...
+---
+hour - different pin map
+PM
+AM
+H_7_F
+H_6_F
+H_5_F
+H_TEN
+H_9_L
+H_7_L
+H_8_L
+H_5_L
+H_4
+H_3
+H_2
+H_1
+M_50
+M_40
+M_30
+M_20
+M_10
+M_9
+M_8
+M_7
+M_6
+M_5
+M_4
+M_3
+M_2
+M_1
+MIN
+H_9_F
