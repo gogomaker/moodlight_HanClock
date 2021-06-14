@@ -1,7 +1,4 @@
-/*  
-functions.ino
-This file includes main file's functions.
-*/
+#include "functions.h"
 
 //LED 켜는 함수, 인수값으로 받은 LED의 번호를 켠다.
 int turnLED(){
@@ -29,14 +26,12 @@ void changeTimeButton() {
 						hourPlus++;
 						if (hourPlus > 23) hourPlus = 0;
 						hour = (hourRtc + hourPlus) % 24;
-						displayTime(hour, min);
 					}
 					else if(tchange == 2) {
 						//Serial.println("min plus");
 						minPlus++;
 						if (minPlus > 59) minPlus = 0;
 						min = (minRtc + minPlus) % 60;
-						displayTime(hour, min);
 					}
 					timeCheck = false;
 				}
@@ -44,35 +39,6 @@ void changeTimeButton() {
 		}
 	}
 	last_bu_state[0] = reading;
-}
-
-void changeLedButton() {
-	int reading = digitalRead(3);
-	if (reading != last_bu_state[1]) {
-		LastDebounceTime[1] = time;
-	}
-	if ((time - LastDebounceTime[1]) > debounceDelay) {
-		if (reading != bu_state[1]) {
-			bu_state[1] = reading;
-			if (bu_state[1] == LOW) {
-				//Serial.println("LED_pressed");
-				bu_led_w = time;
-				ledCheck = true;
-			}
-			else {	//�����ٸ�
-				if (time < bu_led_w + bu_interval) {
-					bright += 30;
-					if (bright > 210) bright = 30;
-					strip.setBrightness(bright);
-					displayTime(hour, min);
-					//Serial.print("change brightness: ");
-					//Serial.println(bright);
-					ledCheck = false;
-				}
-			}
-		}
-	}
-	last_bu_state[1] = reading;
 }
 
 void longTimeButton() {
@@ -84,12 +50,9 @@ void longTimeButton() {
 				//Serial.println("hour off");
 				wait_t = time;
 				if ((hour == 0 || hour == 12) && min == 0) {
-					printled(23);
-					strip.show();
+					//정각이라면
 				}
-				else {
-					strip.setPixelColor(23, 0, 0, 0);
-					strip.show();
+				else {//정각이 아니라면
 				}
 				isblinkH = true;
 			}
@@ -97,35 +60,14 @@ void longTimeButton() {
 				//Serial.println("min off");
 				wait_m = time;
 				if (min == 0) {
-					printled(0);
-					strip.show();
 				}
 				else {
-					strip.setPixelColor(0, 0, 0, 0);
-					strip.show();
 				}
 				isblinkM = true;
 			}
 			timeCheck = false;
 			//Serial.print("mode change: ");
 			//Serial.println(tchange);
-		}
-	}
-}
-
-void longLedButton() {
-	if (ledCheck == true) {
-		if ((time - bu_led_w) >= bu_interval) {
-			//Serial.println("change color");
-			ledmode++;
-			if (ledmode > 12) ledmode = 0;
-			if (ledmode > 0) {
-				r = color[ledmode][0];
-				g = color[ledmode][1];
-				b = color[ledmode][2];
-			}
-			displayTime(hour, min);
-			ledCheck = false;
 		}
 	}
 }
@@ -228,37 +170,6 @@ float get3231Temp() {
 		//error! no data!
 	}
 	return temp3231;
-}
-
-void blinkHM() {
-	if (isblinkH == true) {
-		if (time >= wait_t + 300) {
-			//Serial.println("hour on");
-			if ((hour == 0 || hour == 12) && min == 0) {
-				strip.setPixelColor(23, 0, 0, 0);
-				strip.show();
-			}
-			else {
-				printled(23);
-				strip.show();
-			}
-			isblinkH = false;
-		}
-	}
-	if (isblinkM == true) {
-		if (time >= wait_m + 300) {
-			//Serial.println("min on");
-			if (min == 0) {
-				strip.setPixelColor(0, 0, 0, 0);
-				strip.show();
-			}
-			else {
-				printled(0);
-				strip.show();
-			}
-			isblinkM = false;
-		}
-	}
 }
 
 void showSerialTime() {

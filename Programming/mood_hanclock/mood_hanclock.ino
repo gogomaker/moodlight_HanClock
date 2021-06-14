@@ -49,7 +49,7 @@ LED pin map
   ARDU	11 10	9	6	5	3
 */
 
-#include "src/function.h"
+#include "src/functions.h"
 
 //Charlie plexing mapping
 byte pair[31][2] = // {LED(+) pin ,LED(-) pin}
@@ -80,12 +80,12 @@ byte pair[31][2] = // {LED(+) pin ,LED(-) pin}
   {LED_0,LED_5},  //M_7
   {LED_5,LED_0},  //M_8
   {LED_1,LED_2},  //M_9
-  {LED_2 LED_1},  //M_10
+  {LED_2,LED_1},  //M_10
   {LED_1,LED_3},  //M_20
   {LED_3,LED_1},  //M_30
   {LED_1,LED_4},  //M_40
   {LED_4,LED_1},  //M_50
-}
+};
 
 //declaration variable
 extern volatile unsigned long timer0_millis; //millis 오버플로우 대비 초기화
