@@ -11,6 +11,25 @@
   (Folder "Outputs")
   (Folder "Referenced Projects")
   (PartMRUSelector
+    (GND_POWER
+      (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VCC_BAR
+      (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VCC_CIRCLE
+      (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (USB3076-XX-X_REVC
+      (FullPartName "USB3076-XX-X_REVC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\USB3076-XX-X_REVC.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
     ("SW PUSHBUTTON"
       (FullPartName "SW PUSHBUTTON.Normal")
       (LibraryName
@@ -34,10 +53,8 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources"
-         "D:\.PROJECT\MOODLIGHT_HANCLOCK\DESIGN\PCB\mhgc.dsn")
-      (Path "Design Resources"
-         "D:\.PROJECT\MOODLIGHT_HANCLOCK\DESIGN\PCB\mhgc.dsn" "SCHEMATIC1"))
+      (Path "Design Resources" ".\mhgc.dsn")
+      (Path "Design Resources" ".\mhgc.dsn" "SCHEMATIC1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -48,11 +65,12 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 156 1792 156 616")
-        (Scroll "1751 1380")
-        (Zoom "608")
+        (Scroll "135 425")
+        (Zoom "150")
         (Occurrence "/"))
       (Path "D:\.PROJECT\MOODLIGHT_HANCLOCK\DESIGN\PCB\MHGC.DSN")
       (Schematic "SCHEMATIC1")
       (Page "PAGE1")))
   (LastUsedLibraryBrowseDirectory
-     "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library"))
+     "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library")
+  (MPSSessionName "daseu"))

@@ -43,13 +43,17 @@ extern bool timeCheck;
 extern bool isblinkH, isblinkM;
 extern byte tchange;
 
-extern int turnLED();
-extern void changeTimeButton();
-extern void longTimeButton();
-extern byte decToBcd(byte val);
-extern void set3231Date();
-extern void get3231Date();
-extern float get3231Temp();
-extern void showSerialTime();
+//LED처리 함수
+int turnLED();
+
+//버튼처리함수
+void changeTimeButton();
+void longTimeButton();
+byte decToBcd(byte val);
+//RTC처리함수
+void set3231Date();
+void get3231Date();
+float get3231Temp();
+void showSerialTime();
 
 #endif
