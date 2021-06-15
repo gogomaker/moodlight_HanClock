@@ -31,29 +31,26 @@ extern bool isResetMillis;
 extern byte bright;  //255가 최대, 0이 최소, 가변저항 제어
 extern byte tMSB, tLSB;  //RTC온도관련
 extern float temp3231;
-extern unsigned long bu_led_w;
-extern bool ledCheck;
 extern bool bu_reading[2];  //버튼의 실제 상태를 표현하는 변수
 extern bool bu_state[2];  //체터링을 거른 버튼의 상태를 표현하는 변수
 extern bool last_bu_state[2]; //마지막 버튼 상태
 extern unsigned long LastDebounceTime[2];
 extern unsigned long bu_t_w, last_bu_t_w;  //시간 버튼이 언제 눌렸는가
-extern unsigned long wait_t, wait_m; //LED깜박일 때 사용
 extern bool timeCheck;
-extern bool isblinkH, isblinkM;
 extern byte tchange;
 
 //LED처리 함수
 int turnLED();
 
 //버튼처리함수
-void changeTimeButton();
-void longTimeButton();
-byte decToBcd(byte val);
+void changeHour();
+void changeMin();
 //RTC처리함수
+byte decToBcd(byte val);
 void set3231Date();
 void get3231Date();
 float get3231Temp();
+//시간값출력
 void showSerialTime();
 
 #endif

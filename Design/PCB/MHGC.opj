@@ -53,8 +53,10 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\mhgc.dsn")
-      (Path "Design Resources" ".\mhgc.dsn" "SCHEMATIC1"))
+      (Path "Design Resources"
+         "d:\.project\moodlight_hanclock\design\pcb\mhgc.dsn")
+      (Path "Design Resources"
+         "d:\.project\moodlight_hanclock\design\pcb\mhgc.dsn" "SCHEMATIC1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -65,8 +67,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 156 1792 156 616")
-        (Scroll "135 425")
-        (Zoom "150")
+        (Scroll "442 1325")
+        (Zoom "300")
         (Occurrence "/"))
       (Path "D:\.PROJECT\MOODLIGHT_HANCLOCK\DESIGN\PCB\MHGC.DSN")
       (Schematic "SCHEMATIC1")

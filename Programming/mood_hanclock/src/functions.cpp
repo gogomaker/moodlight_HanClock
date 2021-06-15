@@ -5,7 +5,7 @@ int turnLED(){
 	
 }
 
-
+//버튼처리함수
 void changeTimeButton() {
 	int reading = digitalRead(2);
 	if (reading != last_bu_state[0]) {
@@ -48,22 +48,18 @@ void longTimeButton() {
 			if (tchange > 2) tchange = 0;
 			if (tchange == 1) {
 				//Serial.println("hour off");
-				wait_t = time;
 				if ((hour == 0 || hour == 12) && min == 0) {
 					//정각이라면
 				}
 				else {//정각이 아니라면
 				}
-				isblinkH = true;
 			}
 			else if (tchange == 2) {
 				//Serial.println("min off");
-				wait_m = time;
 				if (min == 0) {
 				}
 				else {
 				}
-				isblinkM = true;
 			}
 			timeCheck = false;
 			//Serial.print("mode change: ");
@@ -72,6 +68,7 @@ void longTimeButton() {
 	}
 }
 
+//RTC처리함수
 byte decToBcd(byte val) {
 	return ((val / 10 * 16) + (val % 10));
 }

@@ -113,18 +113,49 @@ bool isblinkH, isblinkM = false;
 byte tchange = 0;
 
 void setup() {
-	Serial.begin(115200);
-	Serial.println("Mood Light Hangeul Clock has turn ON");
-	Serial.println("Clock start");
+  Serial.begin(115200);
+  Serial.println("Mood Light Hangeul Clock has turn ON");
+  Serial.println("Clock start");
   //bright setting
   bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, 200);
   //button setting
-	pinMode(BU_MIN, INPUT_PULLUP);
-	pinMode(BU_HOUR, INPUT_PULLUP);
+  pinMode(BU_MIN, INPUT_PULLUP);
+  pinMode(BU_HOUR, INPUT_PULLUP);
   //LED setting, other pins not define because they're analog pins.
   pinMode(LED_HOUR, OUTPUT);
 }
 
 void loop() {
-
+  time = millis();
+  get3231Date();
+  if (!sec && !minRtc && !hourRtc) {	//millis 초기화
+		if(!timer0_millis) isResetMillis = true;
+		if (isResetMillis == true) {
+			//Serial.println("Timer reset");
+			bu_led_w = 0;
+			LastDebounceTime[0] = 0;
+			LastDebounceTime[1] = 0;
+			bu_t_w = 0;
+			last_bu_t_w = 0;
+			wait_t = 0;
+			wait_m = 0;
+			time = 0;
+			timer0_millis = 0;
+			isResetMillis = false;
+		}
+	}
+  //매 초마다
+  if (sec != lastSec) {
+    hour = (hourRtc + hourPlus) % 24;
+    min = (minRtc + minPlus) % 60;
+    if (!sec) {	//매 0초마다(1분 간격으로)
+      if (hourPlus || minPlus) {  //RTC값 동기화
+      //Serial.println("RTC set");
+      set3231Date();
+      }
+      //시간표시함수 자리
+      //Serial.println("updated");
+    }
+    lastSec = sec;
+  }
 }
