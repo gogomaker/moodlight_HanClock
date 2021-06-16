@@ -5,7 +5,57 @@ int turnLED(){
 	
 }
 
-//버튼처리함수
+//시간 버튼의 상태를 체크하는 함수
+void changeHour() {
+	int reading = digitalRead(BU_HOUR);
+	if (reading != last_bu_state[0]) {
+		LastDebounceTime[0] = time;
+	}
+	if ((time - LastDebounceTime[0]) > debounceDelay) {
+		if (reading != bu_state[0]) {
+			bu_state[0] = reading;
+			if (bu_state[0] == LOW) {	//버튼이 눌렸다면
+				bu_t_w = time;
+			}
+			else {	//버튼이 때졌다면
+				if (time < bu_t_w + bu_interval) {	//버튼 길게 눌렀으면
+					//Serial.println("hour plus");
+					hourPlus++;
+					if (hourPlus > 23) hourPlus = 0;
+					hour = (hourRtc + hourPlus) % 24;
+				}
+			}
+		}
+	}
+	last_bu_state[0] = reading;
+}
+
+//분 버튼의 상태를 체크하는 함수
+void changeMin() {
+	int reading = digitalRead(BU_MIN);
+	if (reading != last_bu_state[1]) {
+		LastDebounceTime[1] = time;
+	}
+	if ((time - LastDebounceTime[1]) > debounceDelay) {
+		if (reading != bu_state[1]) {
+			bu_state[1] = reading;
+			if (bu_state[1] == LOW) {	//버튼이 눌렸다면
+				bu_m_w = time;
+			}
+			else {	//버튼이 때졌다면
+				if (time < bu_m_w + bu_interval) {	//버튼 길게 눌렀으면
+						//Serial.println("min plus");
+						minPlus++;
+						if (minPlus > 59) minPlus = 0;
+						min = (minRtc + minPlus) % 60;
+				}
+			}
+		}
+	}
+	last_bu_state[1] = reading;
+}
+
+/*
 void changeTimeButton() {
 	int reading = digitalRead(2);
 	if (reading != last_bu_state[0]) {
@@ -20,7 +70,7 @@ void changeTimeButton() {
 				timeCheck = true;
 			}
 			else {
-				if (time < bu_t_w + bu_interval) {
+				if (time < bu_t_w + bu_interval) {	//버튼 길게 눌렀으면
 					if (tchange == 1) {
 						//Serial.println("hour plus");
 						hourPlus++;
@@ -67,6 +117,7 @@ void longTimeButton() {
 		}
 	}
 }
+*/
 
 //RTC처리함수
 byte decToBcd(byte val) {

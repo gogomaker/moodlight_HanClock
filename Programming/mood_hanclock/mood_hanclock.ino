@@ -106,9 +106,10 @@ bool bu_state[2] = { HIGH, HIGH };  //체터링을 거른 버튼의 상태를 �
 bool last_bu_state[2] = { HIGH, HIGH }; //마지막 버튼 상태
 unsigned long LastDebounceTime[2] = {0, 0};
 
-unsigned long bu_t_w, last_bu_t_w = 0;  //시간 버튼이 언제 눌렸는가
+unsigned long bu_t_w, last_bu_t_w = 0;  //시 버튼이 언제 눌렸는가
+unsigned long bu_m_w, last_bu_m_w = 0;  //분 버튼이 언제 눌렸는가
 unsigned long wait_t, wait_m = 0; //LED깜박일 때 사용
-bool timeCheck = false;
+//bool timeCheck = false;
 bool isblinkH, isblinkM = false;
 byte tchange = 0;
 
@@ -117,7 +118,7 @@ void setup() {
   Serial.println("Mood Light Hangeul Clock has turn ON");
   Serial.println("Clock start");
   //bright setting
-  bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, 200);
+  bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, 240);
   //button setting
   pinMode(BU_MIN, INPUT_PULLUP);
   pinMode(BU_HOUR, INPUT_PULLUP);

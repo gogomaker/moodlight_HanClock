@@ -35,22 +35,18 @@ extern bool bu_reading[2];  //버튼의 실제 상태를 표현하는 변수
 extern bool bu_state[2];  //체터링을 거른 버튼의 상태를 표현하는 변수
 extern bool last_bu_state[2]; //마지막 버튼 상태
 extern unsigned long LastDebounceTime[2];
-extern unsigned long bu_t_w, last_bu_t_w;  //시간 버튼이 언제 눌렸는가
-extern bool timeCheck;
+extern unsigned long bu_t_w, last_bu_t_w;  //시 버튼이 언제 눌렸는가
+extern unsigned long bu_m_w, last_bu_m_w;  //분 버튼이 언제 눌렸는가
+//extern bool timeCheck;
 extern byte tchange;
 
-//LED처리 함수
 int turnLED();
-
-//버튼처리함수
 void changeHour();
 void changeMin();
-//RTC처리함수
 byte decToBcd(byte val);
 void set3231Date();
 void get3231Date();
 float get3231Temp();
-//시간값출력
 void showSerialTime();
 
 #endif
