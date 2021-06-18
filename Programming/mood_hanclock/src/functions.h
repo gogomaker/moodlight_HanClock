@@ -15,6 +15,38 @@
 #define BU_MIN 12
 #define BU_HOUR 13
 #define CONTROL_BRIGHT A0
+//define LED numbers
+#define LED_PM 0
+#define LED_AM 1
+#define LED_HOUR 2
+#define LED_MIN 3
+#define LED_H_1 4
+#define LED_H_2 5
+#define LED_H_3 6
+#define LED_H_4 7
+#define LED_H_5_F 8
+#define LED_H_6_F 9
+#define LED_H_7_F 10
+#define LED_H_9_F 11
+#define LED_H_5_L 12
+#define LED_H_7_L 13
+#define LED_H_8_L 14
+#define LED_H_9_L 15
+#define LED_H_TEN 16
+#define LED_M_1 17
+#define LED_M_2 18
+#define LED_M_3 19
+#define LED_M_4 20
+#define LED_M_5 21
+#define LED_M_6 22
+#define LED_M_7 23
+#define LED_M_8 24
+#define LED_M_9 25
+#define LED_M_10 26
+#define LED_M_20 27
+#define LED_M_30 28
+#define LED_M_40 29
+#define LED_M_50 30
 //define other...
 #define DS3231_I2C_ADDRESS 104
 #define FLICKER_TIME 5  //LED flicker ms
@@ -40,7 +72,9 @@ extern unsigned long bu_m_w, last_bu_m_w;  //분 버튼이 언제 눌렸는가
 //extern bool timeCheck;
 extern byte tchange;
 
-int turnLED();
+void clearLED();
+int turnOnLED(int n);
+int displayTime(int h, int m);
 void changeHour();
 void changeMin();
 byte decToBcd(byte val);

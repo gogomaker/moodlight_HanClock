@@ -128,6 +128,7 @@ void setup() {
 
 void loop() {
   time = millis();
+  bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, 240);
   get3231Date();
   if (!sec && !minRtc && !hourRtc) {	//millis 초기화
 		if(!timer0_millis) isResetMillis = true;
@@ -154,9 +155,10 @@ void loop() {
       //Serial.println("RTC set");
       set3231Date();
       }
-      //시간표시함수 자리
+      clearLED();
       //Serial.println("updated");
     }
     lastSec = sec;
   }
+  displayTime(hour, min); //시간출력, 계속 돌려야 하기에 loop에 넣었다
 }

@@ -1,8 +1,25 @@
 #include "functions.h"
+//LED 초기화 함수
+void clearLED() {
+	digitalWrite(LED_0, LOW);
+	digitalWrite(LED_1, LOW);
+	digitalWrite(LED_2, LOW);
+	digitalWrite(LED_3, LOW);
+	digitalWrite(LED_4, LOW);
+	digitalWrite(LED_5, LOW);
+}
+
+int displayTime(int h, int m) {
+	turnOnLED(h);
+	delay(4); //delay를 millis를 활용하는 코드로 변경
+	turnOnLED(m);
+	delay(4); //delay를 millis를 활용하는 코드로 변경
+}
 
 //LED 켜는 함수, 인수값으로 받은 LED의 번호를 켠다.
-int turnLED(){
-	
+int turnOnLED(int n){
+	digitalWrite(pair[n][0], HIGH);
+	digitalWrite(pair[n][1], LOW);
 }
 
 //시간 버튼의 상태를 체크하는 함수
