@@ -27,8 +27,10 @@
 #define LED_H_5_F 8
 #define LED_H_6_F 9
 #define LED_H_7_F 10
+#define LED_H_8_F 9
 #define LED_H_9_F 11
 #define LED_H_5_L 12
+#define LED_H_6_L 12
 #define LED_H_7_L 13
 #define LED_H_8_L 14
 #define LED_H_9_L 15
@@ -69,8 +71,6 @@ extern bool last_bu_state[2]; //마지막 버튼 상태
 extern unsigned long LastDebounceTime[2];
 extern unsigned long bu_t_w, last_bu_t_w;  //시 버튼이 언제 눌렸는가
 extern unsigned long bu_m_w, last_bu_m_w;  //분 버튼이 언제 눌렸는가
-//extern bool timeCheck;
-extern byte tchange;
 
 void clearLED();
 int turnOnLED(int n);

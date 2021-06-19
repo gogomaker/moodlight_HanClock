@@ -1,20 +1,12 @@
-/*
-mood_hanclock.ino
+/* mood_hanclock.ino
   Name:   Moodlight_HangeulClock
-  Owner:  Hayong, Son
+  Owner:  gogomaker
   Create: 2021-05-14, 5:26 PM
-  Version: 0.1
 
 Project introduction_
   This .ino file is very important. Because it's me.
 
-Project detail
-  Ver. 0.0 - I make .ino file and write project logs.
-  Ver. 0.1 - I define constants and variables.
-
 Project TODO
-  버튼 관련 변수 및 함수 전부 옮기기
-  ...
 
 이 프로젝트는, 한글시계 프로그램과 매우 유사하게 제작 될 것이다.
 다만 다른 것은 하나, 시간의 표기 방식(사실 날로먹기지 ㅋ)
@@ -25,8 +17,7 @@ Project TODO
 버튼이 길게(1200ms) 눌렸을 때, 시간 또는 분이 증가한다.
 또한, 짧은 시간에 대해 처리하는 if문을 날려야 한다.
 */
-/*
-Arduino pin map
+/* Arduino pin map
   3 - LED
   4 - LED(hour)
   5 - LED
@@ -40,8 +31,7 @@ Arduino pin map
 
  buttons will connection INPUT_PULLUP.
 */
-/*
-LED pin map
+/* LED pin map
   LED array
   PIN	  0	 1	2	3	4	5
   ARDU	11 10	9	6	5	3
@@ -109,13 +99,11 @@ unsigned long LastDebounceTime[2] = {0, 0};
 unsigned long bu_t_w, last_bu_t_w = 0;  //시 버튼이 언제 눌렸는가
 unsigned long bu_m_w, last_bu_m_w = 0;  //분 버튼이 언제 눌렸는가
 unsigned long wait_t, wait_m = 0; //LED깜박일 때 사용
-//bool timeCheck = false;
 bool isblinkH, isblinkM = false;
-byte tchange = 0;
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("Mood Light Hangeul Clock has turn ON");
+  Serial.println("Mood Light Hangeul Clock is turning ON");
   Serial.println("Clock start");
   //bright setting
   bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, 240);
@@ -155,10 +143,11 @@ void loop() {
       //Serial.println("RTC set");
       set3231Date();
       }
-      clearLED();
       //Serial.println("updated");
     }
     lastSec = sec;
   }
   displayTime(hour, min); //시간출력, 계속 돌려야 하기에 loop에 넣었다
+  void changeHour();
+  void changeMin();
 }
