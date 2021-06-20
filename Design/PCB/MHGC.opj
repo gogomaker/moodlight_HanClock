@@ -84,6 +84,9 @@
       (Type "Report")))
   (Folder "Referenced Projects")
   (PartMRUSelector
+    (GND
+      (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
     (VCC_BAR
       (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
@@ -147,9 +150,9 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 -98 1538 129 589")
-        (Scroll "0 285")
-        (Zoom "152")
+        (Placement "44 2 3 -1 -1 -8 -31 6 1642 89 549")
+        (Scroll "0 0")
+        (Zoom "304")
         (Occurrence "/"))
       (Path "D:\.PROJECT\MOODLIGHT_HANCLOCK\DESIGN\PCB\MHGC.DSN")
       (Schematic "SCHEMATIC1")

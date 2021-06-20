@@ -1,151 +1,65 @@
 #include "functions.h"
 //LED 초기화 함수
 void clearLED() {
-	analogWrite(LED_0, 0);
-	analogWrite(LED_1, 0);
-	analogWrite(LED_2, 0);
-	analogWrite(LED_3, 0);
-	analogWrite(LED_4, 0);
-	analogWrite(LED_5, 0);
+	digitalWrite(LED_0, 0);
+	digitalWrite(LED_1, 0);
+	digitalWrite(LED_2, 0);
+	digitalWrite(LED_3, 0);
+	digitalWrite(LED_4, 0);
+	digitalWrite(LED_5, 0);
 }
 
+//시간표기함수
 int displayTime(int h, int m) {
-	if(h < 12) {	// 오전 시 단위 처리 코드
+	if(h < 12) {	//오전 시 단위 처리 코드
 		switch(h) {
-		case 0:
-			turnOnLED(LED_H_TEN);
-			turnOnLED(LED_H_2);
-			break;
-		case 1:
-			turnOnLED(LED_H_1);
-			break;
-		case 2:
-			turnOnLED(LED_H_2);
-			break;
-		case 3:
-			turnOnLED(LED_H_3);
-			break;
-		case 4:
-			turnOnLED(LED_H_4);
-			break;
-		case 5:
-			turnOnLED(LED_H_5_F);
-			turnOnLED(LED_H_5_L);
-			break;
-		case 6:
-			turnOnLED(LED_H_6_F);
-			turnOnLED(LED_H_6_L);
-			break;
-		case 7:
-			turnOnLED(LED_H_7_F);
-			turnOnLED(LED_H_7_L);
-			break;
-		case 8:
-			turnOnLED(LED_H_8_F);
-			turnOnLED(LED_H_8_L);
-			break;
-		case 9:
-			turnOnLED(LED_H_9_F);
-			turnOnLED(LED_H_9_L);
-			break;
-		case 10:
-			turnOnLED(LED_H_TEN);
-			break;
-		case 11:
-			turnOnLED(LED_H_TEN);
-			turnOnLED(LED_H_1);
-			break;
-		
-		default:
-			Serial.println("AM_case_error");
-			break;
+			case 0:	 turnOnLED(LED_H_TEN); turnOnLED(LED_H_2);	 break;
+			case 1:  turnOnLED(LED_H_1);						 break;
+			case 2:  turnOnLED(LED_H_2);						 break;
+			case 3:  turnOnLED(LED_H_3);						 break;
+			case 4:  turnOnLED(LED_H_4);						 break;
+			case 5:  turnOnLED(LED_H_5_F); turnOnLED(LED_H_5_L); break;
+			case 6:  turnOnLED(LED_H_6_F); turnOnLED(LED_H_6_L); break;
+			case 7:  turnOnLED(LED_H_7_F); turnOnLED(LED_H_7_L); break;
+			case 8:  turnOnLED(LED_H_8_F); turnOnLED(LED_H_8_L); break;
+			case 9:  turnOnLED(LED_H_9_F); turnOnLED(LED_H_9_L); break;
+			case 10: turnOnLED(LED_H_TEN);						 break;
+			case 11: turnOnLED(LED_H_TEN); turnOnLED(LED_H_1);	 break;
+			default: Serial.println("AM_case_error");			 break;
 		}
 		turnOnLED(LED_AM);
-		delay(4); //delay를 millis를 활용하는 코드로 변경 or delayMicro~~
 	}
-	else if (h > 11) {	//오후 시 단위 처리 코드
+	else {			//오후 시 단위 처리 코드
 		switch (h) {
-		case 12:
-			turnOnLED(LED_H_TEN);
-			turnOnLED(LED_H_2);
-			break;
-		case 13:
-			turnOnLED(LED_H_1);
-			break;
-		case 14:
-			turnOnLED(LED_H_2);
-			break;
-		case 15:
-			turnOnLED(LED_H_3);
-			break;
-		case 16:
-			turnOnLED(LED_H_4);
-			break;
-		case 17:
-			turnOnLED(LED_H_5_F);
-			turnOnLED(LED_H_5_L);
-			break;
-		case 18:
-			turnOnLED(LED_H_6_F);
-			turnOnLED(LED_H_6_L);
-			break;
-		case 19:
-			turnOnLED(LED_H_7_F);
-			turnOnLED(LED_H_7_L);
-			break;
-		case 20:
-			turnOnLED(LED_H_8_F);
-			turnOnLED(LED_H_8_L);
-			break;
-		case 21:
-			turnOnLED(LED_H_9_F);
-			turnOnLED(LED_H_9_L);
-			break;
-		case 22:
-			turnOnLED(LED_H_TEN);
-			break;
-		case 23:
-			turnOnLED(LED_H_TEN);
-			turnOnLED(LED_H_1);
-			break;
-		
-		default:
-			Serial.println("PM_case_error");
-			break;
+			case 12: turnOnLED(LED_H_TEN); turnOnLED(LED_H_2);	 break;
+			case 13: turnOnLED(LED_H_1);						 break;
+			case 14: turnOnLED(LED_H_2);						 break;
+			case 15: turnOnLED(LED_H_3);						 break;
+			case 16: turnOnLED(LED_H_4);						 break;
+			case 17: turnOnLED(LED_H_5_F); turnOnLED(LED_H_5_L); break;
+			case 18: turnOnLED(LED_H_6_F); turnOnLED(LED_H_6_L); break;
+			case 19: turnOnLED(LED_H_7_F); turnOnLED(LED_H_7_L); break;
+			case 20: turnOnLED(LED_H_8_F); turnOnLED(LED_H_8_L); break;
+			case 21: turnOnLED(LED_H_9_F); turnOnLED(LED_H_9_L); break;
+			case 22: turnOnLED(LED_H_TEN);						 break;
+			case 23: turnOnLED(LED_H_TEN); turnOnLED(LED_H_1);   break;
+			default: Serial.println("PM_case_error"); 			 break;
 		}
 		turnOnLED(LED_PM);
-		delay(4); //delay를 millis를 활용하는 코드로 변경 or delayMicro~~
 	}
+	
 	//분 단위 처리 코드
-	if(m) turnOnLED(LED_MIN);
+	if(m) turnOnLED(LED_MIN); //if문은 0이 들어오면 실행하지 않음
 	int ten = m / 10;
 	switch (ten) {	//분 십의 단위 처리 코드
-	case 1:
-		turnOnLED(LED_M_10); 
-		turnOnLED(LED_MIN);
-		break;
-	case 2:
-		turnOnLED(LED_M_20);
-		turnOnLED(LED_M_10);
-		break;
-	case 3:
-		turnOnLED(LED_M_30);
-		turnOnLED(LED_M_10);
-		break;
-	case 4:
-		turnOnLED(LED_M_40);
-		turnOnLED(LED_M_10);
-		break;
-	case 5:
-		turnOnLED(LED_M_50);
-		turnOnLED(LED_M_10);
-		break;
-	
-	default:
-		Serial.println("minTen_case_error");
-		break;
+		case 1: turnOnLED(LED_M_10); turnOnLED(LED_MIN);  break;
+		case 2: turnOnLED(LED_M_20); turnOnLED(LED_M_10); break;
+		case 3: turnOnLED(LED_M_30); turnOnLED(LED_M_10); break;
+		case 4: turnOnLED(LED_M_40); turnOnLED(LED_M_10); break;
+		case 5: turnOnLED(LED_M_50); turnOnLED(LED_M_10); break;
+		default: Serial.println("minTen_case_error"); 	  break;
 	}
-	m -= ten * 10;
+	m -= ten * 10;  //분 값을 1의 자리만 남게 하기
 	switch (m) {	//분 일의 단위 처리 코드
 		case 1: turnOnLED(LED_M_1); break;
 		case 2: turnOnLED(LED_M_2); break;
@@ -156,18 +70,16 @@ int displayTime(int h, int m) {
 		case 7: turnOnLED(LED_M_7); break;
 		case 8: turnOnLED(LED_M_8); break;
 		case 9: turnOnLED(LED_M_9); break;
-		default:
-			Serial.println("min_case_error");
-			break;
-	}
-	
+		default: Serial.println("min_case_error"); break;
+	}	
 }
 
 //LED 켜는 함수, 인수값으로 받은 LED의 번호를 켠다.
-int turnOnLED(int n){
+int turnOnLED(int n) {
 	clearLED();
 	analogWrite(pair[n][0], bright);
-	analogWrite(pair[n][1], 0);
+	digitalWrite(pair[n][1], LOW);
+	delay(LED_DELAY);	//LED 켜진 걸 볼 시간은 있어야지~
 }
 
 //시간 버튼의 상태를 체크하는 함수

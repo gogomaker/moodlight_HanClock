@@ -11,7 +11,6 @@
 #define LED_3 6
 #define LED_4 5
 #define LED_5 3
-#define LED_HOUR 4
 #define BU_MIN 12
 #define BU_HOUR 13
 #define CONTROL_BRIGHT A0
@@ -54,6 +53,8 @@
 #define FLICKER_TIME 5  //LED flicker ms
 #define debounceDelay 50  //button debounce removal delay
 #define bu_interval 1200
+#define BRIGHT_LIMIT 250
+#define LED_DELAY 2
 
 extern byte pair[31][2];
 extern unsigned long time;

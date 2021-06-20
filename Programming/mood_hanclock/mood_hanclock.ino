@@ -44,7 +44,7 @@ byte pair[31][2] = // {LED(+) pin ,LED(-) pin}
 {
   {LED_4,LED_5},  //PM
   {LED_5,LED_4},  //AM
-  {LED_1,LED_HOUR},  //hour
+  {LED_1,4    },  //hour
   {LED_1,LED_0},  //MIN
   {LED_1,LED_5},  //H_1
   {LED_5,LED_1},  //H_2
@@ -106,17 +106,22 @@ void setup() {
   Serial.println("Mood Light Hangeul Clock is turning ON");
   Serial.println("Clock start");
   //bright setting
-  bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, 240);
+  bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, BRIGHT_LIMIT);
   //button setting
   pinMode(BU_MIN, INPUT_PULLUP);
   pinMode(BU_HOUR, INPUT_PULLUP);
-  //LED setting, other pins not define because they're analog pins.
-  pinMode(LED_HOUR, OUTPUT);
+  //LED pins setting
+  pinMode(LED_0, OUTPUT);
+  pinMode(LED_1, OUTPUT);
+  pinMode(LED_2, OUTPUT);
+  pinMode(LED_3, OUTPUT);
+  pinMode(LED_4, OUTPUT);
+  pinMode(LED_5, OUTPUT);
 }
 
 void loop() {
   time = millis();
-  bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, 240);
+  bright = map(analogRead(CONTROL_BRIGHT), 0, 1023, 0, BRIGHT_LIMIT);
   get3231Date();
   if (!sec && !minRtc && !hourRtc) {	//millis 초기화
 		if(!timer0_millis) isResetMillis = true;
@@ -134,6 +139,7 @@ void loop() {
 			isResetMillis = false;
 		}
 	}
+  
   //매 초마다
   if (sec != lastSec) {
     hour = (hourRtc + hourPlus) % 24;
@@ -148,6 +154,8 @@ void loop() {
     lastSec = sec;
   }
   displayTime(hour, min); //시간출력, 계속 돌려야 하기에 loop에 넣었다
+  
+  //button
   void changeHour();
   void changeMin();
 }
