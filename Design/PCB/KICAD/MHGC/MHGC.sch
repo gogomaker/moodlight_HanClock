@@ -794,8 +794,6 @@ Wire Wire Line
 	1000 3750 800  3750
 Connection ~ 1000 3750
 Wire Wire Line
-	1000 3250 1400 3250
-Wire Wire Line
 	1300 4700 1400 4700
 Connection ~ 1300 4700
 Wire Wire Line
@@ -824,8 +822,6 @@ Connection ~ 1000 3150
 Wire Wire Line
 	1000 3150 1000 2950
 Connection ~ 1000 3350
-Wire Wire Line
-	1000 3350 1000 3250
 Connection ~ 1000 2750
 Wire Wire Line
 	1000 2750 1000 2550
@@ -878,15 +874,9 @@ Wire Wire Line
 	800  3750 800  7100
 Wire Wire Line
 	1300 6600 1300 6700
-Connection ~ 1000 3250
-Wire Wire Line
-	1000 3250 1000 3150
 Connection ~ 1000 4150
 Wire Wire Line
 	1000 4150 1000 3950
-Connection ~ 1400 3250
-Wire Wire Line
-	1400 3250 1400 3450
 Wire Wire Line
 	1300 5000 1300 5200
 Wire Wire Line
@@ -922,8 +912,6 @@ Wire Wire Line
 Wire Wire Line
 	1300 1750 1400 1750
 Connection ~ 1300 1750
-Wire Wire Line
-	1400 1750 1400 3250
 Wire Wire Line
 	1000 1950 1000 1750
 Connection ~ 1000 1550
@@ -963,4 +951,8 @@ $EndComp
 Wire Wire Line
 	1300 4150 1300 4300
 NoConn ~ 3750 4350
+Wire Wire Line
+	1000 3150 1000 3350
+Wire Wire Line
+	1400 1750 1400 3450
 $EndSCHEMATC
