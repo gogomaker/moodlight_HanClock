@@ -1,4 +1,4 @@
-19220941586628996
+19222568632691928
 3216LED
 3216LED
 
@@ -34,6 +34,13 @@ POT_BRIGHT
 0
 5
 3
+3216LED
+USB_Micro-B_Amphenol_10118194_Horizontal
+USB Micro-B receptacle, horizontal, SMD, 10118194, https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/10118194.pdf
+USB Micro B horizontal SMD
+0
+9
+5
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
