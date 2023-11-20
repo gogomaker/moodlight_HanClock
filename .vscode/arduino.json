@@ -1,6 +1,5 @@
 {
     "sketch": "Programming\\mood_hanclock\\mood_hanclock.ino",
-    "configuration": "cpu=16MHzatmega328",
-    "board": "arduino:avr:pro",
-    "programmer": "arduino:stk500"
+    "board": "arduino:avr:uno",
+    "programmer": "arduinoisp"
 }
